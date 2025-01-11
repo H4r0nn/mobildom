@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobilDom</title>
+    <!-- Подключение шрифта Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif; /* Используем шрифт Montserrat */
+            margin: 0;
+            background-color: #f0f0f0; /* Серый фон для всего тела */
+            font-size: 18px; /* Увеличение размера текста */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: white; /* Белый цвет для заголовка */
+            color: black; /* Черный текст */
+            border-bottom: 1px solid #ccc;
+        }
+
+        .logo img {
+            height: 80px;
+            position: relative;
+            left: 30px;
+        }
+
+        .contact {
+            display: flex;
+            gap: 20px;
+        }
+
+        .full-width-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            background-color: #555; /* Темно-серый цвет меню */
+            padding: 10px 0;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px; /* Увеличение размера текста в меню */
+        }
+
+        .nav a:hover {
+            background-color: #777; /* Цвет фона при наведении */
+        }
+
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            background-color: #fff; /* Белый фон для карточек */
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .advantages {
+            padding: 20px;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .advantage-block {
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            background-color: #fff; /* Белый фон для блоков преимуществ */
+        }
+
+        .advantage-icon {
+            width: 50px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .advantage {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .advantage-text {
+            padding: 20px;
+            width: 50%;
+        }
+
+        .reverse {
+            flex-direction: row-reverse;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333; 
+            color: white; /* Белый текст */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="img/mobildom_logo.png" alt="">
+        </div>
+        <div class="contact">
+            <span>Телефон: +7 922 239-68-88</span>
+            <span>Почта: MobilDomInfo@gmail.com</span>
+            <a href="https://t.me/+kHQ6hHYLDCdlNWEy">Telegram</a>
+            <a href="https://vk.com/feed">ВКонтакте</a>
+        </div>
+    </header>
+    <img src="img/dom.jpg" alt="" class="full-width-image">
+
+    <nav class="nav">
+        <a href="#catalog">Каталог</a>
+        <a href="#advantages">Наши преимущества</a>
+        <a href="#certificates">Сертификаты продукции</a>
+        <a href="#contacts">Контакты</a>
+    </nav>
+
+    <section id="catalog" style="margin-left: 10px;">
+        <h2>Каталог</h2>
+
+        <h3>Садовые дома</h3>
+        <div class="catalog">
+            <div class="card">
+                <img src="img/cards/sd21.jpg" alt="Садовый дом 1">
+                <h3>Садовый дом 21</h3>
+                <p>Площадь: 21,2м²<br>Размер: 6000mm x 4000mm</p>
+                <p>Цена: 350 000 руб.</p>
+            </div>
+            <div class="card">
+                <img src="img/cards/sd21hb.jpg" alt="Садовый дом 2">
+                <h3>Садовый дом 21 с хозблоком</h3>
+                <p>Площадь: 20м²<br>Размер: 6000mm x 4000mm</p>
+                <p>Цена: 1200 руб.</p>
+            </div>
+        </div>
+
+        <h3>Террасы</h3>
+        <div class="catalog">
+            <div class="card">
+                <img src="img/cards/tp1,5.jpg" alt="Терраса 1">
+                <h3>Терраса прямая 1,5</h3>
+                <p>Открытая терраса прямой формы и шириной 1,5 м – самая компактная модель линейки.
+                    Подходит к садовым домам с длиной по центральному фасаду от 3 до 6 м.
+                    Напольное покрытие выполнено из доски пола 19×88 мм. Конструктив ограждения с проветриванием и
+                    допуском солнечного света.</p>
+                <p>Цена: 68 000 руб.</p>
+            </div>
+            <div class="card">
+                <img src="img/cards/tp3.jpg" alt="Терраса 2">
+                <h3>Терраса прямая 3</h3>
+                <p>Прямая терраса шириной 3 м станет идеальным решением для расширения пространства.
+                    Площадь террасы предоставляет дополнительные места для размещения декоративных элементов или
+                    создания обеденной зоны.
+                    Подходит к садовым домам с длиной по центральному фасаду от 3 до 6 м. Конструктив ограждения с
+                    проветриванием и допуском солнечного света.</p>
+                <p>Цена: 95 0000 руб.</p>
+            </div>
+        </div>
+
+        <h3>Хозблоки</h3>
+        <div class="catalog">
+            <div class="card">
+                <img src="img/cards/hb7.jpg" alt="">
+                <h3>Хозблок 7 с дровницей</h3>
+                <p>Площадь: 7,1м²<br>Размер: 4000mm x 2200mm</p>
+                <p>Цена: 210 000 руб.</p>
+            </div>
+            <div class="card">
+                <img src="img/cards/х10о.jpg" alt="">
+                <h3>Хозблок 10 односкатный</h3>
+                <p>Площадь: 20м²<br>Размер: 3700mm x 3700mm</p>
+                <p>Цена: 270 000 руб.</p>
+            </div>
+        </div>
+
+        <h3>Гаражи</h3>
+        <div class="catalog">
+            <div class="card">
+                <img src="img/cards/g49.jpg" alt="Гараж 1">
+                <h3>Гараж 49</h3>
+                <p>Площадь: 20,2м²<br>Размер: 4000mm x 6000mm</p>
+                <p>Цена: 1500 руб.</p>
+            </div>
+            <div class="card">
+                <img src="img/cards/g52n.jpg" alt="Гараж 2">
+                <h3>Гараж 52 с навесом</h3>
+                <p>Площадь: 52м²<br>Размер: 6000mm x 9000mm</p>
+                <p>Цена: 480 000 руб.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="price" style="margin-left: 10px;">
+        <h2>Прайс</h2>
+        <img src="img\price\p1.PNG" alt="Описание картинки" style="width: 500px; height: auto;">
+        <p>Содержимое прайс-листа...</p>
+    </section>
+
+    <div id="modal" class="modal" style="display: none;">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    
+    <section id="advantages" class="advantages" style="margin-left: 10px;">
+        <h2>Наши преимущества</h2>
+        <div class="advantages-grid">
+            <div class="advantage-block">
+                <img src="img/adv/materials.png" alt="Иконка 1" class="advantage-icon">
+                <h3>Качественные материалы</h3>
+            </div>
+            <div class="advantage-block">
+                <img src="img/adv/fast.png" alt="Иконка 2" class="advantage-icon">
+                <h3>Быстрая сборка</h3>
+            </div>
+            <div class="advantage-block">
+                <img src="img/adv/lowprice.png" alt="Иконка 3" class="advantage-icon">
+                <h3>Низкие цены</h3>
+            </div>
+            <div class="advantage-block">
+                <img src="img/adv/consult.png" alt="Иконка 4" class="advantage-icon">
+                <h3>Бесплатная консультация и выезд на объект</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" style="margin-left: 10px;">
+        <h2>Сертификаты продукции</h2>
+        <p>Содержимое сертификатов...</p>
+    </section>
+    
+    <section id="contacts" style="margin-left: 10px;">
+        <h2>Контакты</h2>
+        <p>Для получения дополнительной информации свяжитесь с нами по телефону или электронной почте.</p>
+        <p>Телефон: +7 922 239-68-88</p>
+        <p>Почта: MobilDomInfo@gmail.com</p>
+        <p>Адрес: Краснодарский Край, г. Сочи, ул. Гастелло 40А</p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 MobilDom.</p>
+    </footer>
+    
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    
+    <div id="modal" class="modal" style="display: none;">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    
+    <script>
+        const modal = document.getElementById("modal");
+        const modalImage = document.getElementById("modalImage");
+        const captionText = document.getElementById("caption");
+        const closeModal = document.getElementById("closeModal");
+
+        document.querySelectorAll('.card img').forEach(image => {
+            image.addEventListener('click', function () {
+                modal.style.display = "block";
+                modalImage.src = this.src;
+                captionText.innerHTML = this.alt;
+            });
+        });
+
+        closeModal.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+    
+</body>
+
+</html>
