@@ -6,6 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MobilDom</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode
+                .insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(99790216, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/99790216" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -168,13 +197,18 @@
             }
 
             .contact {
-    flex: 1 1 100%; /* Заставляет блок контактов занимать всю ширину */
-    display: flex;
-    flex-direction: column; /* Вертикальное расположение элементов */
-    align-items: flex-start; /* Выравнивание по левому краю */
-    gap: 10px; /* Отступы между элементами */
-    margin-top: 10px; /* Отступ сверху */
-}
+                flex: 1 1 100%;
+                /* Заставляет блок контактов занимать всю ширину */
+                display: flex;
+                flex-direction: column;
+                /* Вертикальное расположение элементов */
+                align-items: flex-start;
+                /* Выравнивание по левому краю */
+                gap: 10px;
+                /* Отступы между элементами */
+                margin-top: 10px;
+                /* Отступ сверху */
+            }
 
             .logo img {
                 height: 80px;
@@ -204,8 +238,10 @@
             }
 
             .price-image {
-                width: 100%; /* Полная ширина для мобильных */
-                max-width: 400px; /* Максимальная ширина для мобильных */
+                width: 100%;
+                /* Полная ширина для мобильных */
+                max-width: 400px;
+                /* Максимальная ширина для мобильных */
             }
         }
     </style>
@@ -234,7 +270,9 @@
 
     <section id="about" style="margin-left: 10px;">
         <h2>О нас</h2>
-        <p>Наша компания предлагает мобильные, уютные и красивые дома от компании ТехноНИКОЛЬ из экологически чистых натуральных материалов по доступным ценам. Комфортные для проживания и отдыха, созданы с заботой о природе и людях.</p>
+        <p>Наша компания предлагает мобильные, уютные и красивые дома от компании ТехноНИКОЛЬ из экологически чистых
+            натуральных материалов по доступным ценам. Комфортные для проживания и отдыха, созданы с заботой о природе и
+            людях.</p>
     </section>
 
     <section id="catalog" style="margin-left: 10px;">
@@ -300,7 +338,7 @@
             <div class="card">
                 <img src="img/cards/g49.jpg" alt="Гараж 1">
                 <h3>Гараж 49</h3>
-                <p>Площадь: 20,2м²<br>Размер: 4000mm x 6000mm</p>
+                <p>Площадь: 49м²<br>Размер: 6000mm x 9000mm</p>
                 <p>Цена: 680 000 руб.</p>
             </div>
             <div class="card">
@@ -382,7 +420,7 @@
             });
         });
     </script>
-    
+
     <div id="modal" class="modal" style="display: none;">
         <span class="close" id="closeModal">&times;</span>
         <img class="modal-content" id="modalImage">
