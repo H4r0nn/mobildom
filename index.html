@@ -141,6 +141,42 @@
             width: 50%;
         }
 
+        #configurator {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#configurator h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#configurator div {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#configurator input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+#configurator label {
+    font-size: 16px;
+    color: #555;
+}
+
+#configurator h3 {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
         .reverse {
             flex-direction: row-reverse;
         }
@@ -243,6 +279,48 @@
                 max-width: 400px;
                 /* Максимальная ширина для мобильных */
             }
+
+            #configurator {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 100%; /* Ограничиваем ширину блока */
+}
+
+#configurator h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em; /* Увеличиваем размер заголовка */
+    color: #333;
+    text-align: center; /* Центрируем заголовок */
+}
+
+#configurator div {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
+}
+
+#configurator input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.5); /* Увеличиваем размер чекбоксов */
+}
+
+#configurator label {
+    font-size: 14px; /* Уменьшаем размер текста для мобильных */
+    color: #555;
+    flex: 1; /* Позволяет меткам занимать доступное пространство */
+}
+
+#configurator h3 {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+    text-align: center; /* Центрируем итоговую стоимость */
+}
         }
     </style>
 </head>
@@ -264,6 +342,7 @@
     <nav class="nav">
         <a href="#catalog">Каталог</a>
         <a href="#advantages">Наши преимущества</a>
+        <a href="#configurator">Конфигуратор</a>
         <a href="#certificates">Сертификаты продукции</a>
         <a href="#contacts">Контакты</a>
     </nav>
@@ -383,6 +462,99 @@
             </div>
         </div>
     </section>
+
+    <section id="configurator" style="margin-left: 10px;">
+        <h2>Конфигуратор услуг</h2>
+        <form id="serviceForm">
+            <div>
+                <input type="checkbox" id="service1" value="300000" onchange="calculateTotal()">
+                <label for="service1">Домокомплект 4*6 м - 300 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service2" value="65000" onchange="calculateTotal()">
+                <label for="service2">Сборка дома на участке - 65 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service3" value="48000" onchange="calculateTotal()">
+                <label for="service3">Бетонные мини сваи с установкой 12 шт. - 48 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service4" value="46000" onchange="calculateTotal()">
+                <label for="service4">Винтовые сваи с установкой 12 шт. - 46 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service5" value="70000" onchange="calculateTotal()">
+                <label for="service5">3 окна, 1 распашная дверь пластик (с установкой) - 70 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service6" value="65000" onchange="calculateTotal()">
+                <label for="service6">Гибкая черепица + монтаж - 65 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service7" value="30000" onchange="calculateTotal()">
+                <label for="service7">Ондулин + монтаж - 30 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service8" value="120000" onchange="calculateTotal()">
+                <label for="service8">Утепление пола и крыши 100 мм. Мин. плита (материалы+монтаж) - 120 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service9" value="100000" onchange="calculateTotal()">
+                <label for="service9">Утепление стен 100мм мин. плита (материалы + монтаж) - 100 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service10" value="60000" onchange="calculateTotal()">
+                <label for="service10">Фасадные термопанели под кирпич (материалы + монтаж) - 60 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service11" value="50000" onchange="calculateTotal()">
+                <label for="service11">Веранда 2*6 монтаж + материалы - 50 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service12" value="68000" onchange="calculateTotal()">
+                <label for="service12">Веранда 1,5*6 ТехноНИКОЛЬ - 68 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service13" value="95000" onchange="calculateTotal()">
+                <label for="service13">Веранда 3*6 ТехноНИКОЛЬ - 95 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service14" value="30000" onchange="calculateTotal()">
+                <label for="service14">Покраска внешняя, от - 30 000,00 ₽</label>
+            </div>
+            <div>
+                <input type="checkbox" id="service15" value="30000" onchange="calculateTotal()">
+                <label for="service15">Покраска внутренняя, от - 30 000,00 ₽</label>
+            </div>
+        </form>
+        <h3>Итоговая стоимость: <span id="totalPrice">0</span> ₽</h3>
+    </section>
+    
+    <script>
+        function calculateTotal() {
+            const checkboxes = document.querySelectorAll('#serviceForm input[type="checkbox"]');
+            let total = 0;
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    total += parseInt(checkbox.value);
+                }
+            });
+            document.getElementById('totalPrice').textContent = total.toLocaleString('ru-RU');
+        }
+    </script>
+    
+    <script>
+        function calculateTotal() {
+            const checkboxes = document.querySelectorAll('#serviceForm input[type="checkbox"]');
+            let total = 0;
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    total += parseInt(checkbox.value);
+                }
+            });
+            document.getElementById('totalPrice').textContent = total.toLocaleString('ru-RU');
+        }
+    </script>
 
     <section id="certificates" style="margin-left: 10px;">
         <h2>Сертификаты продукции</h2>
