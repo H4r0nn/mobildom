@@ -223,6 +223,63 @@
             padding: 20px;
         }
 
+        #application {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #application h2 {
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        #application label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        #application input[type="text"],
+        #application input[type="tel"],
+        #application input[type="email"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        #application button {
+            background-color: #555;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        #application button:hover {
+            background-color: #777;
+        }
+
+        .message-box {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
         /* Мобильные стили */
         @media (max-width: 768px) {
             .header {
@@ -328,6 +385,46 @@
                 color: #333;
                 text-align: center;
                 /* Центрируем итоговую стоимость */
+            }
+
+            #application {
+                padding: 15px;
+                /* Уменьшаем отступы */
+                margin: 10px;
+                /* Уменьшаем внешние отступы */
+            }
+
+            #application h2 {
+                font-size: 1.5em;
+                /* Увеличиваем размер заголовка */
+                margin-bottom: 10px;
+                /* Уменьшаем отступ снизу */
+            }
+
+            #application label {
+                font-size: 14px;
+                /* Уменьшаем размер шрифта для меток */
+            }
+
+            #application input[type="text"],
+            #application input[type="tel"],
+            #application input[type="email"] {
+                padding: 5px;
+                /* Уменьшаем внутренние отступы */
+                font-size: 14px;
+                /* Уменьшаем размер шрифта */
+            }
+
+            #application button {
+                padding: 8px 12px;
+                /* Уменьшаем отступы кнопки */
+                font-size: 16px;
+                /* Уменьшаем размер шрифта кнопки */
+            }
+
+            .message-box {
+                font-size: 14px;
+                /* Уменьшаем размер шрифта для сообщения */
             }
         }
     </style>
@@ -535,6 +632,7 @@
         <h3>Итоговая стоимость: <span id="totalPrice">0</span> ₽</h3>
     </section>
 
+
     <script>
         function calculateTotal() {
             const checkboxes = document.querySelectorAll('#serviceForm input[type="checkbox"]');
@@ -548,17 +646,56 @@
         }
     </script>
 
+
+    <section id="application" style="margin-left: 10px;">
+        <h2>Оставить заявку</h2>
+        <form id="applicationForm">
+            <label for="name">ФИО:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <button type="submit">Отправить заявку</button>
+        </form>
+        <div id="responseMessage" class="message-box"></div>
+    </section>
+
     <script>
-        function calculateTotal() {
-            const checkboxes = document.querySelectorAll('#serviceForm input[type="checkbox"]');
-            let total = 0;
-            checkboxes.forEach((checkbox) => {
-                if (checkbox.checked) {
-                    total += parseInt(checkbox.value);
-                }
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('applicationForm').addEventListener('submit', function (event) {
+                event.preventDefault(); // Предотвращаем стандартное поведение формы
+
+                const formData = new FormData(this); // Собираем данные формы
+
+                fetch('send_request.php', { // Убедитесь, что путь к вашему PHP-скрипту правильный
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Сетевая ошибка: ' + response.statusText);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        const responseMessage = document.getElementById('responseMessage');
+                        responseMessage.innerText = data; // Показываем ответ от сервера
+                        responseMessage.style.display = 'block'; // Показываем message box
+
+                        // Очищаем форму после успешной отправки
+                        this.reset();
+                    })
+                    .catch(error => {
+                        const responseMessage = document.getElementById('responseMessage');
+                        responseMessage.innerText = 'Ошибка: ' + error.message;
+                        responseMessage.style.display = 'block'; // Показываем message box
+                    });
             });
-            document.getElementById('totalPrice').textContent = total.toLocaleString('ru-RU');
-        }
+        });
     </script>
 
     <section id="certificates" style="margin-left: 10px;">
