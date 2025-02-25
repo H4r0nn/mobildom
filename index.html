@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MobilDom</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img\logo_white.png" type="image/png">
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -280,6 +281,64 @@
             color: #333;
         }
 
+        /* Стили для блока "О нас" */
+        #about {
+            margin-left: 10px;
+        }
+
+        /* Стили для кнопки */
+        .button-link {
+            text-decoration: none;
+            /* Убираем подчеркивание */
+        }
+
+        .button {
+            background-color: #555;
+            /* Цвет фона */
+            color: white;
+            /* Цвет текста */
+            padding: 10px 15px;
+            /* Отступы внутри кнопки */
+            border: none;
+            /* Убираем рамку */
+            border-radius: 5px;
+            /* Закругленные углы */
+            cursor: pointer;
+            /* Курсор при наведении */
+            font-size: 18px;
+            /* Размер шрифта */
+            margin-top: 15px;
+            /* Отступ сверху */
+            transition: background-color 0.3s;
+            /* Плавный переход для фона */
+        }
+
+        .button:hover {
+            background-color: #777;
+            /* Цвет фона при наведении */
+        }
+
+        /* Стили для подписи */
+        .discount-text {
+            margin-top: 10px;
+            /* Отступ сверху */
+            font-size: 20px;
+            /* Увеличенный размер шрифта */
+            color: #d9534f;
+            /* Цвет текста для выделения (например, красный) */
+            font-weight: bold;
+            /* Жирный шрифт */
+            background-color: #f9f9f9;
+            /* Светлый фон для выделения */
+            padding: 10px;
+            /* Отступы вокруг текста */
+            border-radius: 5px;
+            /* Закругленные углы */
+            border: 1px solid #000000;
+            /* Рамка того же цвета, что и текст */
+        }
+
+
         /* Мобильные стили */
         @media (max-width: 768px) {
             .header {
@@ -452,12 +511,22 @@
         <a href="#contacts">Контакты</a>
     </nav>
 
-    <section id="about" style="margin-left: 10px;">
+    <section id="about">
         <h2>О нас</h2>
         <p>Наша компания предлагает мобильные, уютные и красивые дома от компании ТехноНИКОЛЬ из экологически чистых
             натуральных материалов по доступным ценам. Комфортные для проживания и отдыха, созданы с заботой о природе и
             людях.</p>
     </section>
+
+    <!-- Новые элементы под блоком "О нас" -->
+    <div style="margin-left: 10px; margin-top: 20px;">
+        <a href="https://mrqz.me/67ac65d83f162700193c26dd" class="button-link">
+            <button class="button">Узнайте стоимость и сроки домов из мини-бруса</button>
+        </a>
+        <p class="discount-text">
+            Пройди тест и получи скидку до 20 000 рублей на производство дома
+        </p>
+    </div>
 
     <section id="catalog" style="margin-left: 10px;">
         <h2>Каталог</h2>
